@@ -1,0 +1,20 @@
+services:
+  client:
+    build:
+      context: ./client
+    ports:
+      - "3000:3000"
+    container_name: web-ui
+    volumes:
+      - ./client:/usr/src/app/client
+      - /usr/src/app/client/node_modules
+
+  server:
+    build:
+      context: ./server
+    ports:
+      - "4000:4000"
+    container_name: backend-api
+    volumes:
+      - ./server:/usr/src/app/server
+      - /usr/src/app/server/node_modules
